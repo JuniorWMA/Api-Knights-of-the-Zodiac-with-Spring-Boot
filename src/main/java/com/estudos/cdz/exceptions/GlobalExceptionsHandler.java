@@ -20,5 +20,14 @@ public class GlobalExceptionsHandler {
 
         return new ResponseEntity<ErrorObject>(error, HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(ArmorException.class)
+    public ResponseEntity<ErrorObject> handlerArmorNotFoundException(ArmorException ex, WebRequest request){
+        ErrorObject error = new ErrorObject();
+        error.setStatusCode(HttpStatus.NOT_FOUND.value());
+        error.setMessage(ex.getMessage());
+        error.setTimeStamp(new Date());
+
+        return new ResponseEntity<ErrorObject>(error, HttpStatus.NOT_FOUND);
+    }
     
 }

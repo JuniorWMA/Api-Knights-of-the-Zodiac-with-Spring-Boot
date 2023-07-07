@@ -1,5 +1,6 @@
 package com.estudos.cdz.models;
 
+import com.estudos.cdz.dtos.ArmorDto;
 import com.estudos.cdz.enums.Category;
 
 import jakarta.persistence.Entity;
@@ -33,6 +34,14 @@ public class Armor {
     private Category category;
     @NotNull
     private Integer resistence;
+
+    public Armor(ArmorDto dto) {
+        this.name = dto.name();
+        this.category = dto.category();
+        this.resistence = dto.resistence();
+    }
+
+    
 
     
 }
